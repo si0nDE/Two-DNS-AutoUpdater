@@ -23,10 +23,14 @@ cls
 ##################################################  ##################################################
 ##################################################  ##################################################
 
+$ver = "v0.3"
+
+$host.ui.RawUI.WindowTitle = “Two-DNS Auto Updater $ver  –  © github.simonfieber.it”
+
 ### Startbildschirm ###
 function startbildschirm {
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "║ Two-DNS Auto Updater v0.2                                                     ║"
+    Write-Host "║ Two-DNS Auto Updater $ver                                                     ║"
     Write-Host "║                                                                               ║"
     Write-Host "║                                                     (c) github.simonfieber.it ║"
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
