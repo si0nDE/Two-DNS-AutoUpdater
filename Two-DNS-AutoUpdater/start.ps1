@@ -23,7 +23,7 @@ cls
 ##################################################  ##################################################
 ##################################################  ##################################################
 
-$ver = "v0.3"
+$ver = "v0.4"
 
 $host.ui.RawUI.WindowTitle = “Two-DNS Auto Updater $ver  –  © github.simonfieber.it”
 
@@ -34,4 +34,13 @@ function startbildschirm {
     Write-Host "║                                                                               ║"
     Write-Host "║                                                     (c) github.simonfieber.it ║"
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
+}
+
+function Send-UpdateRequest{
+    if($use_https -eq "1"){
+        Invoke-WebRequest -Uri $updateHTTPS -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($username+":"+$password ))} -Method Get
+    }
+    else{
+        Invoke-WebRequest -Uri $updateHTTP -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($username+":"+$password ))} -Method Get
+    }
 }
